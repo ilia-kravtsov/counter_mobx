@@ -1,4 +1,4 @@
-Counter State Manager Playground (MobX version)
+# Counter State Manager Playground (MobX version)
 Данный проект является частью научно-исследовательской работы (НИР), посвящённой сравнительному анализу UI / Client State Managers в React-приложениях.
 
 В рамках проекта реализуется одно и то же минимальное React-приложение — расширенный счётчик, — в котором слой управления состоянием заменяется различными стейт-менеджерами при сохранении неизменной UI-части.
@@ -7,7 +7,8 @@ Counter State Manager Playground (MobX version)
 
 Zustand, MobX, Jotai, Effector, Extended React State Model
 
-Цель
+## Цель
+
 Цель проекта — практически сравнить архитектурные и прикладные характеристики различных state-менеджеров, включая:
 
 количество и сложность кода
@@ -20,7 +21,8 @@ Zustand, MobX, Jotai, Effector, Extended React State Model
 
 размер production-бандла
 
-Функциональность
+## Функциональность
+
 Приложение реализует расширенный счётчик со следующим глобальным состоянием:
 
 count: number step: number lastUpdatedBy: 'increment' | 'decrement' | 'reset'
