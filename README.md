@@ -1,73 +1,44 @@
-# React + TypeScript + Vite
+Counter State Manager Playground (MobX version)
+Данный проект является частью научно-исследовательской работы (НИР), посвящённой сравнительному анализу UI / Client State Managers в React-приложениях.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+В рамках проекта реализуется одно и то же минимальное React-приложение — расширенный счётчик, — в котором слой управления состоянием заменяется различными стейт-менеджерами при сохранении неизменной UI-части.
 
-Currently, two official plugins are available:
+Текущая версия проекта реализует управление состоянием с использованием MobX и служит референсной точкой для последующего сравнения с другими решениями:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Zustand, MobX, Jotai, Effector, Extended React State Model
 
-## React Compiler
+Цель
+Цель проекта — практически сравнить архитектурные и прикладные характеристики различных state-менеджеров, включая:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+количество и сложность кода
 
-## Expanding the ESLint configuration
+архитектурный бойлерплейт
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+ментальную модель
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+влияние на рендеринг
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+размер production-бандла
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Функциональность
+Приложение реализует расширенный счётчик со следующим глобальным состоянием:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+count: number step: number lastUpdatedBy: 'increment' | 'decrement' | 'reset'
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Доступные действия:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+увеличение значения счётчика (increment)
+
+уменьшение значения (decrement)
+
+сброс значения (reset)
+
+изменение шага инкремента (step)
+
+отображение информации о последнем действии
+
+Функциональность намеренно минимальна, чтобы:
+
+не усложнять код UI
+
+сфокусироваться на сравнении state-менеджеров
