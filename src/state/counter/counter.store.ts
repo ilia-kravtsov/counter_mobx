@@ -1,10 +1,10 @@
 import { makeAutoObservable } from 'mobx';
-import type { CounterState } from './counter.types';
+import type {CounterState, LastUpdatedBy} from './counter.types';
 
 class CounterStore implements CounterState {
   count = 0;
   step = 1;
-  lastUpdatedBy: 'increment' | 'decrement' | 'reset' | null = null;
+  lastUpdatedBy: LastUpdatedBy = null;
 
   constructor() {
     makeAutoObservable(this);
